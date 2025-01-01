@@ -1,0 +1,183 @@
+/* Container */
+.private-hire-container {
+    font-family: "Arial", sans-serif;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Video Background */
+.video-container {
+    position: relative; /* Allow stacking of content below */
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content Below Video */
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    background-color: #f5f0e6;
+    padding-top: 20px; /* Space between the video and the rest */
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* Optional background for readability */
+}
+
+.header-section h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    color: #4d4d4d;
+    margin-bottom: 20px;
+}
+
+.header-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Enquiry Form Section */
+.enquiry-form-section {
+    background-color: #707164;
+    padding: 40px 20px;
+    color: white;
+}
+
+.enquiry-form-section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Form Styling */
+.enquiry-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #7f7f74;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.enquiry-form button {
+    background-color: #ffb400;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enquiry-form button:hover {
+    background-color: #d69d00;
+}
+
+/* Image Gallery Section */
+.image-gallery {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background-color: #f5f0e6;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Down Prompt */
+.scroll-down-prompt {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: #fff;
+    animation: fadeInOut 2s infinite;
+    z-index: 2;
+}
+
+.scroll-down-prompt .arrow {
+    font-size: 1.5rem;
+    animation: bounce 1s infinite;
+}
+
+.scroll-down-prompt p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Keyframes for Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .enquiry-form .form-row {
+        flex-direction: column;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        max-width: 100%;
+    }
+
+    .scroll-down-prompt {
+        bottom: 10px;
+    }
+}

@@ -1,0 +1,93 @@
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0; /* Ensure the navbar stretches to the full width */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+  color: white;
+  display: flex;
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center;
+  padding: 10px 30px; /* Add padding for spacing */
+  z-index: 1000;
+  box-sizing: border-box; /* Include padding in width calculation */
+  transition: top 0.3s ease, bottom 0.3s ease; /* Smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+}
+
+/* Navbar at Top */
+.navbar.top {
+  top: 0; /* Stick to the top */
+  bottom: auto;
+}
+
+/* Navbar at Bottom */
+.navbar.bottom {
+  bottom: 0;
+  top: auto;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Logo Styling */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  text-align: left;
+  margin-left: 10px; /* Add slight margin on the left */
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end; /* Align links to the right */
+  flex-grow: 1; /* Ensure links take up remaining space */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap; /* Prevent links from wrapping */
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #ffb400; /* Gold hover effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .navbar-links {
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem; /* Adjust logo size */
+  }
+
+  .navbar-links a {
+    font-size: 0.9rem; /* Adjust link size */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack logo and links */
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  .navbar-links {
+    width: 100%;
+    flex-wrap: wrap; /* Wrap links to fit smaller screens */
+    justify-content: center; /* Center-align links */
+  }
+
+  .navbar-links a {
+    font-size: 0.85rem; /* Reduce link size */
+  }
+}

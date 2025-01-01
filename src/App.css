@@ -12,7 +12,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+html{
+  background-color: #707164;
+  margin: 0; /* Ensure no default margin around the body */
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +25,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+   /* color : #6E6E5E ;  */
 }
 
 .App-link {

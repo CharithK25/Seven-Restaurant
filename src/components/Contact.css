@@ -1,0 +1,73 @@
+body {
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #707164;
+    color: #fff;
+  }
+  
+  /* Contact Page Layout */
+  .contact-page {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
+  
+  /* Map Section */
+  .map-section {
+    flex: 1;
+    min-height: 50vh;
+  }
+  
+  /* Info Section */
+  .info-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #6c6f58;
+  }
+  
+  .info-section h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .info-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .info-section a {
+    color: #ffb400;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .info-section a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Social Media Icons */
+  .social-media-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    padding: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icon img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }

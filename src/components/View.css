@@ -1,0 +1,86 @@
+/* Container */
+.about-us-container {
+    font-family: "Arial", sans-serif;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Story Section */
+  .our-story {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .story-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .our-story-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .mission-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .mission-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  /* Icons Section */
+  .icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .icon-card {
+    text-align: center;
+    flex: 1 1 100px;
+    max-width: 150px;
+  }
+  
+  .icon-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .icon-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .icons-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .icon-card {
+      max-width: 100px;
+    }
+  }

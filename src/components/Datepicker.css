@@ -1,0 +1,71 @@
+.date-picker {
+    font-family: "Arial", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .date-picker-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #808270;
+    cursor: pointer;
+  }
+  
+  .date-picker-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .date-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .date-picker-day-label {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .date-picker-day,
+  .date-picker-empty {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .date-picker-day {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+  }
+  
+  .date-picker-day:hover {
+    background: #e0e0e0;
+  }
+  
+  .date-picker-day.selected {
+    background: #808270;
+    color: white;
+    font-weight: bold;
+  }
