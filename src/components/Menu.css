@@ -1,0 +1,263 @@
+
+/* General styling for the menu container */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #707164;
+}
+
+/* Video Section */
+.menu-video-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Menu Boxes Section */
+.menu-boxes-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.menu-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 45%;
+  height: 200px;
+}
+
+.menu-box-content {
+  text-align: center;
+}
+
+.menu-box-title {
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+}
+
+.menu-box-button {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-box-button:hover {
+  background-color: #333;
+  /* color: white; */
+}
+
+/* Two-column layout for menu sections */
+.menu-sections-columns {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+}
+
+.menu-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual Menu Sections */
+.menu-section {
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #5a5a5a;
+}
+
+/* Header of each section */
+.menu-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #5a5a5a;
+  color: white;
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.menu-section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-section-toggle {
+  font-size: 1.5rem;
+}
+
+/* Hide content initially */
+.menu-section-content {
+  display: none;
+  padding: 0;
+}
+
+/* Show content when section is open */
+.menu-section.open .menu-section-content {
+  display: block;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+}
+
+/* Wines Section Headers */
+.wines-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.wines-header span {
+  width: 80px;
+  text-align: right;
+}
+
+/* Wines Section List */
+/* Styling for the list in the menu-section */
+.menu-section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-section-list li span {
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-bottom: 5px ;
+}
+
+.menu-section-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* margin-bottom: 20px; */
+  padding: 5px 0;
+  /* gap: 10px; */
+}
+
+.menu-section-list li .content {
+  max-width: 80%;
+}
+
+.menu-section-list li .price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.menu-section-list li span:first-child {
+  flex: 3;
+  text-align: left;
+}
+
+.menu-section-list li span:not(:first-child) {
+  width: 80px;
+  text-align: right;
+}
+
+.wine-region {
+  font-style: italic;
+  color: #666;
+}
+/* Buttons Container */
+.menu-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+  background-color: #5a5a5a; /* Deep green */
+}
+
+.menu-button:hover {
+  background-color: cream; /* Gold */
+}
+
+.vodka-section h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+.vodka-section {
+  width: 100%;
+}
+
+.vodka-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+  border-bottom: none;
+}
+.vodka-header span:first-child {
+  margin-left: auto; /* Push the first span (Single 25ml) to the right */
+  padding-right: 30px;
+}
+.vodka-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vodka-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.vodka-note {
+  font-style: italic;
+}

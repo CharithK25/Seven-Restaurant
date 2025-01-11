@@ -1,9 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Privateevents.css";
-import MOMO from "../asset/MOMO.jpg";
+import MOMO from "../asset/Stables.jpg";
 import Allmix from "../asset/Allmix.jpg";
-import kebab from "../asset/kebab.jpg";
+import kebab from "../asset/Garden.jpg";
 import BackgroundVideo from "../asset/privateevents.mp4";
+import Stable1 from "../asset/Stables1.jpeg"; // Additional images
+import Stable2 from "../asset/Snow1.jpeg";
+import Stable3 from "../asset/Snow2.jpeg";
 
 // Define types for form inputs
 interface EnquiryForm {
@@ -35,6 +38,8 @@ const initialFormState: EnquiryForm = {
 const Privateevents: React.FC = () => {
   const [formState, setFormState] = React.useState<EnquiryForm>(initialFormState);
   const contentRef = useRef<HTMLDivElement>(null); // Reference to the section to scroll to
+  const [showModal, setShowModal] = React.useState<boolean>(false); // Modal state
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -43,7 +48,12 @@ const Privateevents: React.FC = () => {
       [name]: value,
     }));
   };
-
+  const scrollCarousel = (direction: "left" | "right") => {
+  if (carouselRef.current) {
+    const scrollAmount = direction === "left" ? -300 : 300; // Adjust scroll distance
+    carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+};
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted:", formState);
@@ -54,10 +64,14 @@ const Privateevents: React.FC = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleImageClick = () => {
+    setShowModal(true); // Trigger the modal to appear
+  };
+
   const galleryImages = [
-    { src: MOMO, alt: "VIP Area 1", caption: "VIP Area" },
-    { src: Allmix, alt: "VIP Area 2", caption: "VIP Area" },
-    { src: kebab, alt: "VIP Area 3", caption: "VIP Area" },
+    { src: MOMO, alt: "VIP Area 1", caption: "Stables" },
+    { src: Allmix, alt: "VIP Area 2", caption: "Shisha Area" },
+    { src: kebab, alt: "VIP Area 3", caption: "Outdoor" },
   ];
 
   return (
@@ -78,9 +92,32 @@ const Privateevents: React.FC = () => {
         <HeaderSection />
         <section className="content-wrapper">
           <EnquiryForm formState={formState} handleChange={handleChange} handleSubmit={handleSubmit} />
-          <ImageGallery images={galleryImages} />
+          <ImageGallery images={galleryImages} handleImageClick={handleImageClick} />
         </section>
       </div>
+
+      {/* Modal for additional images */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close-button" onClick={() => setShowModal(false)}>
+              &times;
+            </span>
+            <span className="carousel-arrow left" onClick={() => scrollCarousel("left")}>
+        &#8249;
+      </span>
+            <div className="carousel">
+              <img src={Stable1} alt="Stables 1" />
+              <img src={Stable2} alt="Stables 2" />
+              <img src={Stable3} alt="Stables 3" />
+            </div>
+            {/* Right Arrow */}
+      <span className="carousel-arrow right" onClick={() => scrollCarousel("right")}>
+        &#8250;
+      </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -152,12 +189,17 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ formState, handleChange, hand
 
 interface ImageGalleryProps {
   images: { src: string; alt: string; caption: string }[];
+  handleImageClick: () => void;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => (
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, handleImageClick }) => (
   <section className="image-gallery">
     {images.map((image, index) => (
-      <div className="image-container" key={index}>
+      <div
+        className="image-container"
+        key={index}
+        onClick={index === 0 ? handleImageClick : undefined} // Attach click handler only for the "Stables" image
+      >
         <img src={image.src} alt={image.alt} />
         <div className="image-caption">{image.caption}</div>
       </div>

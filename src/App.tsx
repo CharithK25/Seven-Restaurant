@@ -6,36 +6,33 @@ import Datepicker from "./components/Datepicker";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Privateevents from "./components/Privateevents";
-import Reservations from "./components/Reservations";
+import AboutUs from "./components/View";
+import MenuBoxes from "./components/Menu";
+import DrinksPage from "./components/Drinkspage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./index.css";
 
+
 const App: React.FC = () => {
   return (
     <div className="App">
-      {/* <Header /> */}
       <>
       <Router>
       <Navbar />
       <Routes>
-      {/* <Hero /> */}
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Privateevents />} />
-        <Route path="/view" element={<view/>} />
-
-        {/* Add other routes here */}
+        <Route path="/view" element={<AboutUs/>} />
+        <Route path="/menus" element={<MenuBoxes/>} />
+        {/* <Route path="/drinks" element={<DrinksPage />} /> */}
+      
       </Routes>
     </Router>
     </>
-      {/* <Footer /> */}
-      {/* <Datepicker/> */}
-      {/* <Reservations/> */}
-      {/* <Navbar />
-      <Contact/>
-      <About/> */}
+      
     </div>
   );
 };

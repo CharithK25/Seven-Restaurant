@@ -2,59 +2,50 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
+
+
+
 const Navbar: React.FC = () => {
-  const [isAtTop, setIsAtTop] = useState(false); // Track navbar position
-  const [lastScrollY, setLastScrollY] = useState(0); // Track last scroll position
+  const [isAtTop, setIsAtTop] = useState(false); // Tracks if the navbar should be at the top
   const location = useLocation(); // Get current route
+
+  // Routes where the navbar should always remain at the top
+  const alwaysAtTopRoutes = [
+    "/about",
+    "/contact",
+    "/menus",
+    "/reservations",
+    "/view",
+    "/work-with-us",
+    "/events",
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Routes where the navbar should always remain at the top
-      const alwaysAtTopRoutes = [
-        "/about",
-        "/contact",
-        "/menus",
-        "/reservations",
-        "/view",
-        "/work-with-us",
-      ];
-
       if (alwaysAtTopRoutes.includes(location.pathname)) {
-        setIsAtTop(true); // Keep navbar at the top
+        setIsAtTop(true); // Navbar stays at the top for specific routes
         return;
       }
 
-      // For Home Page or other routes: Dynamic scrolling behavior
-      if (currentScrollY > lastScrollY && currentScrollY > 30) {
+      // Dynamic behavior for other routes (e.g., Home Page)
+      if (window.scrollY > 30) {
         setIsAtTop(true); // Move navbar to the top
-      } else if (currentScrollY < lastScrollY) {
+      } else {
         setIsAtTop(false); // Move navbar to the bottom
       }
-
-      setLastScrollY(currentScrollY); // Update last scroll position
     };
 
     // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
+    // Cleanup scroll event listener on unmount
     return () => {
-      // Cleanup scroll event listener
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY, location.pathname]);
+  }, [location.pathname]); // Re-run effect when the route changes
 
+  // Ensure correct position when navigating directly to routes
   useEffect(() => {
-    // Ensure navbar is positioned correctly when navigating directly to routes
-    const alwaysAtTopRoutes = [
-      "/about",
-      "/contact",
-      "/menus",
-      "/reservations",
-      "/view",
-      "/work-with-us",
-    ];
     if (alwaysAtTopRoutes.includes(location.pathname)) {
       setIsAtTop(true);
     } else {
@@ -70,10 +61,8 @@ const Navbar: React.FC = () => {
         <Link to="/about">About Us</Link>
         <Link to="/reservations">Online Reservations</Link>
         <Link to="/menus">Menus</Link>
-        <Link to="/events">Private Events</Link>
+        <Link to="/events">Host Your Party</Link>
         <Link to="/view">View</Link>
-        {/* <Link to="/work-with-us">Work With Us</Link>
-        <Link to="/email-signup">Email Signup</Link> */}
         <Link to="/contact">Contact Us</Link>
       </nav>
     </header>

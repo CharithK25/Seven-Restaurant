@@ -1,9 +1,10 @@
+/* General Navbar Styling */
 .navbar {
   position: fixed;
   left: 0;
   right: 0; /* Ensure the navbar stretches to the full width */
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker semi-transparent background */
   color: white;
   display: flex;
   justify-content: space-between; /* Space between logo and links */
@@ -11,21 +12,23 @@
   padding: 10px 30px; /* Add padding for spacing */
   z-index: 1000;
   box-sizing: border-box; /* Include padding in width calculation */
-  transition: top 0.3s ease, bottom 0.3s ease; /* Smooth transition */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+  transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add slight shadow */
 }
 
-/* Navbar at Top */
+/* Navbar at the Top */
 .navbar.top {
   top: 0; /* Stick to the top */
   bottom: auto;
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background at the top */
 }
 
-/* Navbar at Bottom */
+/* Navbar at the Bottom */
 .navbar.bottom {
-  bottom: 0;
+  bottom: 0; /* Stick to the bottom */
   top: auto;
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0);  */
+  background-color: transparent;
 }
 
 /* Logo Styling */
@@ -37,6 +40,7 @@
   text-align: left;
   margin-left: 10px; /* Add slight margin on the left */
   flex-shrink: 0; /* Prevent logo from shrinking */
+  transition: font-size 0.3s ease; /* Smooth size transition */
 }
 
 /* Navbar Links */
@@ -52,11 +56,17 @@
   text-decoration: none;
   font-size: 1rem;
   white-space: nowrap; /* Prevent links from wrapping */
-  transition: color 0.3s;
+  transition: color 0.3s, font-size 0.3s ease; /* Smooth hover effect */
 }
 
 .navbar-links a:hover {
   color: #ffb400; /* Gold hover effect */
+}
+
+/* Navbar Scroll Effect */
+.navbar.hidden {
+  transform: translateY(-100%); /* Hide the navbar */
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Responsive Adjustments */
@@ -77,7 +87,7 @@
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column; /* Stack logo and links */
-    align-items: flex-start;
+    align-items: center;
     padding: 10px 15px;
   }
 
@@ -85,6 +95,7 @@
     width: 100%;
     flex-wrap: wrap; /* Wrap links to fit smaller screens */
     justify-content: center; /* Center-align links */
+    gap: 10px;
   }
 
   .navbar-links a {

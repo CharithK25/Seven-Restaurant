@@ -1,69 +1,11 @@
-/* Grid Section for Images */
-.image-grid-section {
-  /* background-color: #f8f8f8; Light background for contrast */
-  background-color:#707164;
-  padding: 20px; /* Add padding around the grid */
-  display: flex; /* Ensure the section fills the container */
-  justify-content: center;
-}
-
-/* Grid for Images */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
-  gap: 20px; /* Spacing between images */
-  max-width: 1200px; /* Restrict grid width for better appearance */
-  width: 100%; /* Allow grid to stretch */
-}
-.body {
-  background-color:#707164; /* Replace with your desired color */
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-/* Image Container Styling */
-.image-container {
-  overflow: hidden;
-  border-radius: 10px; /* Smooth corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease-in-out;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures images maintain aspect ratio while covering the container */
-  display: block;
-}
-
-/* Hover Effect */
-.image-container:hover {
-  transform: scale(1.05); /* Slight zoom effect */
-}
-/* Custom layout adjustments for specific images */
-.image-0 {
-  grid-column: span 2; /* Make image 1 span 2 columns */
-}
-
-.image-1,
-.image-2 {
-  grid-row: span 2; /* Make images 2 and 3 span 2 rows */
-}
-
-.image-3,
-.image-4 {
-  grid-column: span 1; /* Normal-sized images */
-  grid-row: span 1;
-}
+/* Hero Section */
 .hero {
   position: relative;
-  height: 100vh; /* Full height of the viewport */
-  width: 100%; /* Full width of the viewport */
-  overflow: hidden; /* Ensure no overflow */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  /* background-color: #808270; */
   align-items: center;
 }
 
@@ -73,36 +15,269 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the video covers the area without distortion */
-  z-index: -1; /* Keeps the video behind the content */
+  object-fit: cover;
+  z-index: -1;
 }
 
-/* .hero-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
+.hero-overlay {
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
 
-.large-image-section {
-  margin-top: auto; /* Pushes the image to the bottom of the page */
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+}
+
+/* Image Grid Section */
+.image-grid-section {
+  background-color: #707164;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-grid {
+  display: inline-flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.image-container {
+  flex: 0 0 auto;
+  width: 350px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container img {
   width: 100%;
-  background-color: #f4f4f4; /* Optional background color */
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll Buttons */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
-  padding: 20px 0;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.large-image-container {
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 8px; /* Optional rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.large-image-container img {
+.scroll-button.left {
+  left: 10px;
+}
+
+.scroll-button.right {
+  right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .image-container {
+    width: 300px;
+    height: 350px;
+  }
+}
+
+/* General Styling for the Scroll Button */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #333, #555); /* Modern gradient background */
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
+  transition: transform 0.2s ease-in-out, background 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.scroll-button:hover {
+  transform: translateY(-50%) scale(1.1); /* Slight zoom-in */
+  background: linear-gradient(135deg, #555, #777); /* Lighter gradient on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+}
+
+/* Button for Left Scroll */
+.scroll-button.left {
+  left: 10px; /* Position on the left side */
+}
+
+/* Button for Right Scroll */
+.scroll-button.right {
+  right: 10px; /* Position on the right side */
+}
+
+/* Add Animation When Clicked */
+.scroll-button:active {
+  transform: translateY(-50%) scale(0.9); /* Slight shrink on click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+}
+
+/* Footer Section */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #f4f4f4;
+  padding: 30px 20px;
+}
+
+.footer-column {
+  flex: 1 1 20%;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.footer-column li:hover {
+  color: #000;
+}
+
+.footer-bottom {
+  text-align: center;
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  margin-top: 20px;
 }
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: #999;
+}
+/* Styling for social icons */
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+/* <h3>SPARKLING WINES</h3>
+<div className="wines-header">
+  <span></span>
+  <span></span>
+  <span>Bottle</span>
+</div>
+<ul className="menu-section-list">
+  <li>
+    <span>Botter Prosecco Spumante (Ve) (Small)</span>
+    <span></span>
+    <span></span>
+    <span>£10.50</span>
+  </li>
+  <li className="wine-region">Italy</li>
+
+  <li>
+    <span>Prosecco Rosé (Small)</span>
+    <span></span>
+    <span></span>
+    <span>£10.50</span>
+  </li>
+  <li className="wine-region">Italy</li>
+
+  <li>
+    <span>The Seven Harrow "Prosecco Spumante (Ve)"</span>
+    <span></span>
+    <span></span>
+    <span>£30.95</span>
+  </li>
+  <li className="wine-region">Italy</li>
+
+  <li>
+    <span>Bonotto delle Tezze Manzoni Moscato Rosato</span>
+    <span></span>
+    <span></span>
+    <span>£31.95</span>
+  </li>
+  <li className="wine-region">Italy</li>
+</ul>
+
+<h3>ROSÉ WINES</h3>
+<ul className="menu-section-list">
+  <li>
+    <span>The Seven Harrow Pinot Grigio Rosato (Ve)</span>
+    <span>£6.75</span>
+    <span>£8.45</span>
+    <span>£24.95</span>
+  </li>
+  <li className="wine-region">Veneto, Italy</li>
+
+  <li>
+    <span>Water’s Edge White Zinfandel</span>
+    <span>£6.75</span>
+    <span>£8.45</span>
+    <span>£23.95</span>
+  </li>
+  <li className="wine-region">California, USA</li>
+
+  <li>
+    <span>Pinot Noir Rosé (Ve)</span>
+    <span>£7.25</span>
+    <span>£9.45</span>
+    <span>£26.95</span>
+  </li>
+  <li className="wine-region">Pfalz, Germany</li>
+</ul> */
