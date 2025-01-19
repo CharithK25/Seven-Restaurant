@@ -1,88 +1,119 @@
-import React from "react";
+import React, { useState } from "react";
 import "./View.css";
-import storyImage from "../asset/image1.png";
-import widestVarietyIcon from "../asset/image1.png";
-import qualitySourcingIcon from "../asset/image2.png";
-import lowPricesIcon from "../asset/image3.png";
-import meatImage from "../asset/Panipoori.jpg";
-import steakImage from "../asset/MOMO.jpg"; // Replace with the actual image
 
-interface IconProps {
-  imageSrc: string;
-  title: string;
-}
+const categories = ["Starters & Sharers", "Prime Burgers", "Signature Salads", "Something on the Side"];
+const initialProducts = [
+  {
+    id: 1,
+    name: "SPICED CAULIFLOWER",
+    description: "Asian-style, crispy fried, spiced cauliflower...",
+    calories: "266 kcal",
+    price: "8.50",
+    category: "Starters & Sharers",
+  },
+  {
+    id: 2,
+    name: "THE PLANT-BASED BURGER",
+    description: "Vegan burger patty, smashed avocado...",
+    calories: "691 kcal",
+    price: "17.75",
+    category: "Prime Burgers",
+  },
+];
 
-const IconCard: React.FC<IconProps> = ({ imageSrc, title }) => (
-  <div className="icon-card">
-    <img src={imageSrc} alt={title} className="icon-image" />
-    <p className="icon-title">{title}</p>
-  </div>
-);
+const FoodOrderPage: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Starters & Sharers");
+  const [products] = useState(initialProducts);
+  const [pickupTime, setPickupTime] = useState("12:30");
+  const [basket, setBasket] = useState<string[]>([]);
 
-const AboutUs: React.FC = () => {
-  const missionIcons: IconProps[] = [
-    { imageSrc: widestVarietyIcon, title: "WIDEST VARIETY" },
-    { imageSrc: qualitySourcingIcon, title: "QUALITY SOURCING" },
-    { imageSrc: lowPricesIcon, title: "EVERYDAY LOW PRICES" },
-  ];
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+  };
+
+  const handleAddToBasket = (productName: string) => {
+    setBasket([...basket, productName]);
+  };
+
+  const handlePickupTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPickupTime(e.target.value);
+  };
 
   return (
-    <div className="view-container">
-      {/* Story Section */}
-      <section className="story-section">
-        <img src={storyImage} alt="Our Story" className="story-image" />
-        <div className="story-overlay">
-          <h2 className="story-title">OUR STORY</h2>
-        </div>
-      </section>
+    <div className="food-order-page">
+      {/* Header */}
+      <header className="header">
+        <p>Register for a Miller & Carter account. <a href="#">Sign-up</a> to get exclusive offers and rewards.</p>
+      </header>
 
-      {/* Mission Section */}
-      <section className="mission-section">
-        <h2 className="mission-title">MEAT IS OUR MISSION</h2>
-        <p className="mission-description">
-          We're a modern-day meat and seafood market on a mission to change the way people shop for and eat protein.
-        </p>
-        <div className="icons-container">
-          {missionIcons.map((icon, index) => (
-            <IconCard key={index} imageSrc={icon.imageSrc} title={icon.title} />
-          ))}
-        </div>
-      </section>
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Product Section */}
+        <section className="product-section">
+          {/* Filters */}
+          <div className="filters">
+            <span>Filters:</span>
+            <button className="filter-button active">Vegetarian</button>
+            <button className="filter-button">Vegan</button>
+          </div>
 
-      {/* Variety Section */}
-      <section className="variety-section">
-        <div className="variety-content">
-          <h2 className="variety-title">BIG ON VARIETY</h2>
-          <p className="variety-description">
-            We've got the best variety of meat and seafood <strong>anywhere</strong>. Choose from over <strong>700 products</strong> (including <strong>450+ meat & seafood items!</strong>), from everyday grocery staples to rare finds like premium Wagyu and exotic meats that'll inspire your inner chef.
-          </p>
-          <p className="variety-description">
-            Complete any meal with <strong>appetizers, sides, seasonings, fruits, veggies, breads, and desserts</strong> that pair perfectly with our proteins. When you’re hungry and in a hurry, we also offer <strong>pre-seasoned meats</strong> prepped with chef-inspired flavors alongside <strong>heat-and-eat dishes</strong>.
-          </p>
-        </div>
-        <div className="variety-image-container">
-          <img src={meatImage} alt="Variety of Meat and Seafood" className="variety-image" />
-        </div>
-      </section>
+          {/* Categories */}
+          <div className="categories">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`category-button ${selectedCategory === category ? "active" : ""}`}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
 
-      {/* Quality Section */}
-      <section className="quality-section">
-        <div className="quality-image-container">
-          <img src={steakImage} alt="Steak on Grill" className="quality-image" />
+          {/* Product List */}
+         {/* Product List */}
+<div className="product-list">
+  {products
+    .filter((product) => product.category === selectedCategory)
+    .map((product) => (
+      <div key={product.id} className="product-item">
+        <img src="https://via.placeholder.com/100" alt={product.name} />
+        <div className="product-info">
+          <h3>{product.name}</h3>
+          <p>{product.description}</p>
+          <p>{product.calories}</p>
+          <p>£{product.price}</p>
+          <button onClick={() => handleAddToBasket(product.name)}>Add to Basket</button>
         </div>
-        <div className="quality-content">
-          <h2 className="quality-title">BIGGER ON QUALITY</h2>
-          <p className="quality-description">
-            We’re serious about what makes it on your plate. Our butchers, product developers, and in-house chefs <strong>hand-select and taste-test every product we source</strong>. We ensure every product is free from over 100 common ingredients that don’t meet our high-quality standards.
-          </p>
-          <p className="quality-description">
-            No one beats our beef, which comes from farms in Nebraska and Colorado. Our beef and pork is <strong>aged to perfection</strong> to bring you the best flavor, and then we blast freeze all of our products to lock in taste and tenderness in every bite.
-          </p>
-          <button className="quality-button">LEARN ABOUT SOURCING</button>
-        </div>
-      </section>
+      </div>
+    ))}
+</div>
+        </section>
+
+        {/* Order Summary */}
+        <aside className="order-summary">
+          <h3>Order Information</h3>
+          {basket.length === 0 ? (
+            <p>Your basket is empty</p>
+          ) : (
+            <ul>
+              {basket.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+          <div className="additional-info">
+            <p><strong>Additional Information</strong></p>
+            <p>📍 Miller & Carter Harrow <a href="#">View</a></p>
+            <p>⏰ Pick up time: {pickupTime} <a href="#">Change</a></p>
+          </div>
+          <button className="checkout-button" disabled={basket.length === 0}>
+            Checkout
+          </button>
+        </aside>
+      </div>
     </div>
   );
 };
 
-export default AboutUs;
+export default FoodOrderPage;

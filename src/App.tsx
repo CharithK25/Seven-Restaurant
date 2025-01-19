@@ -6,7 +6,7 @@ import Datepicker from "./components/Datepicker";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Privateevents from "./components/Privateevents";
-import AboutUs from "./components/View";
+import FoodOrderPage from "./components/View";
 import MenuBoxes from "./components/Menu";
 import DrinksPage from "./components/Drinkspage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Privateevents />} />
-        <Route path="/view" element={<AboutUs/>} />
+        <Route path="/view" element={<FoodOrderPage/>} />
         <Route path="/menus" element={<MenuBoxes/>} />
         {/* <Route path="/drinks" element={<DrinksPage />} /> */}
       
