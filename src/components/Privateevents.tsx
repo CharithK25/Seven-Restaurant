@@ -111,7 +111,7 @@ const Privateevents: React.FC = () => {
               <img src={Stable2} alt="Stables 2" />
               <img src={Stable3} alt="Stables 3" />
             </div>
-            {/* Right Arrow */}
+             {/* Right Arrow */}
       <span className="carousel-arrow right" onClick={() => scrollCarousel("right")}>
         &#8250;
       </span>

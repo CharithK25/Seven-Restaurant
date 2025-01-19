@@ -1,5 +1,5 @@
 import React from "react";
-import NightCourtyard from "../asset/NightCourtyard.jpg";
+import NightCourtyard from "../asset/Snow2.jpeg";
 import Sunny from "../asset/Sunny.png";
 import Alex from "../asset/Alex.jpeg"; // Import Alex's image
 import Bartenders from "../asset/Bartenders.jpeg";

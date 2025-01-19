@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
         <Link to="/reservations">Online Reservations</Link>
         <Link to="/menus">Menus</Link>
         <Link to="/events">Host Your Party</Link>
-        <Link to="/view">View</Link>
+        <Link to="/view">Order&Collect</Link>
         <Link to="/contact">Contact Us</Link>
       </nav>
     </header>

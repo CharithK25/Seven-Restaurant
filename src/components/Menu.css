@@ -79,11 +79,17 @@
 
 /* Two-column layout for menu sections */
 .menu-sections-columns {
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
   gap: 20px;
   width: 100%;
+  padding: 20px; */
+  position: relative;
+  z-index: 1;
   padding: 20px;
+  width: 100%;
+  background-color: rgba(112, 113, 100, 0.6); /* Semi-transparent background */
+  border-radius: 8px;
 }
 
 .menu-column {
@@ -99,6 +105,9 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: #5a5a5a;
+  width: 80%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Header of each section */
@@ -106,7 +115,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8px 15px;
   background-color: #5a5a5a;
   color: white;
   cursor: pointer;
@@ -169,7 +178,8 @@
   justify-content: space-between;
   align-items: flex-start;
   /* margin-bottom: 20px; */
-  padding: 5px 0;
+  padding: 3px 0;
+  font-size: 0.9rem;
   /* gap: 10px; */
 }
 
@@ -260,4 +270,54 @@
 
 .vodka-note {
   font-style: italic;
+}
+
+
+/* Menu sections on top of video */
+.menu-sections-columns {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  width: 100%;
+  background-color: rgba(112, 113, 100, 0.8); /* Semi-transparent background */
+  border-radius: 8px;
+}
+/* Background video */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+/* Container for video and subsections */
+.food-menu-section-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Video specifically for the food menu section */
+.food-section-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+/* Menu sections displayed on top of the video */
+.menu-sections-columns.on-video {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  width: 100%;
+  backdrop-filter: blur(4px) brightness(80%);
+  border-radius: 8px;
 }
