@@ -3,31 +3,50 @@
 Seven Restaurant is a full-stack restaurant web application built with TypeScript, React, and Node.js, providing seamless menu management, reservations, and order processing.
 
 ✨ Features
+
 	•       Dynamic Menu Management – Easily manage food and drink menus
  
 	•       Table Reservations – Users can book tables in real-time
  
 	•	Order Processing – Handle and track customer orders efficiently
+ 
 	•	Admin Dashboard – Manage restaurant operations
+ 
 	•	Secure Authentication – JWT-based login system
+ 
 	•	Database Integration – SQL-based database for structured data storage
+ 
 
 🛠️ Tech Stack
-	•	Frontend: React, TypeScript, CSS Modules
+
+	•	Frontend: React, TypeScript, CSS Modules, Redux
+ 
 	•	Backend: Node.js, Express, SQL Database
+ 
 	•	Authentication: JWT
+ 
 	•	Infrastructure: Docker, CI/CD
 
 📂 Project Structure
+
 	•	Frontend (Seven-Restaurant/src)
+ 
 	•	components/ – Reusable UI components (Navbar, Menu, Reservations, etc.)
+ 
 	•	asset/ – Static files and images
+ 
 	•	App.tsx – Main application entry
+ 
 	•	Backend (sevenharrow/src)
+ 
 	•	controllers/ – Handles business logic for the menu
+ 
 	•	routes/ – API endpoints (e.g., /menuRoutes.ts)
+ 
 	•	Database/ – SQL schema and database setup (schema.sql)
+ 
 	•	Models/ – Database models (db.ts)
+ 
 	•	index.ts – Backend server entry
 
 
